@@ -81,7 +81,7 @@ function App(): JSX.Element {
             Hello
           </Text>
           <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
-            This is my first CICD App
+            This is my first CICD App..
           </Text>
         </View>
       </ScrollView>
