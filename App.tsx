@@ -29,32 +29,6 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -63,28 +37,35 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView
+      style={{
+        backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+        alignItems: 'center',
+        justifyContent: 'center',
+        flex: 1,
+      }}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}>
-          <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
-            Hello
-          </Text>
-          <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
-            This is my first CICD App..
-          </Text>
-        </View>
-      </ScrollView>
+
+      <View
+        style={{
+          // flex: 1,
+          backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
+          Hello
+        </Text>
+        <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
+          This is my first CICD App..
+        </Text>
+        <Text style={{textAlign: 'center', color: 'red', fontSize: 20}}>
+          Apk build Succsessfully
+        </Text>
+      </View>
     </SafeAreaView>
   );
 }
